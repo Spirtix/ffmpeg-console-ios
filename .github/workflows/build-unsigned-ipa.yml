@@ -25,9 +25,8 @@ jobs:
         working-directory: ffmpeg-kit-next
         run: |
           export SED="$(brew --prefix gnu-sed)/bin/gsed"
-          ./ios.sh -x --spm --enable-gpl \
-            --enable-x264 --enable-x265 \
-            --disable-armv7 --disable-armv7s --disable-i386
+          ./ios.sh -x --spm --arch=arm64 --enable-gpl \
+            --enable-x264 --enable-x265
 
       - uses: actions/upload-artifact@v4
         with:
