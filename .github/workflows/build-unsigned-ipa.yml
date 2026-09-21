@@ -24,7 +24,7 @@ jobs:
       - name: Build xcframework
         working-directory: ffmpeg-kit-next
         run: |
-          ./scripts/start-ios.sh -x --spm --enable-gpl \
+          ./ios.sh -x --spm --enable-gpl \
             --enable-x264 --enable-x265 \
             --disable-armv7 --disable-armv7s --disable-i386
 
