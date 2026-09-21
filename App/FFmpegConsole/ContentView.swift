@@ -19,8 +19,21 @@ struct ContentView: View {
 
                 FileManager.default.changeCurrentDirectoryPath(documentsURL.path)
 
-                let session = FFmpegKit.execute(command)
-                log = session?.getAllLogsAsString() ?? "no output"
+                FFmpegKit.executeAsync(
+                    command,
+                    withCompleteCallback: { session in
+                        DispatchQueue.main.async {
+                            log += "\nFinished.\n"
+                            log += session?.getAllLogsAsString() ?? "no output"
+                        }
+                    },
+                    withLogCallback: { logEntry in
+                        DispatchQueue.main.async {
+                            log += logEntry?.getMessage() ?? ""
+                        }
+                    },
+                    withStatisticsCallback: nil
+                )
             }
 
             ScrollView {
