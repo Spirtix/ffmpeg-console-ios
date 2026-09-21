@@ -17,6 +17,7 @@ targets:
         CODE_SIGN_IDENTITY: ""
     dependencies:
       - package: ffmpegkit
+        product: ffmpeg-kit
 packages:
   ffmpegkit:
     path: ../ffmpeg-xcframeworks
