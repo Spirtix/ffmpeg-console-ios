@@ -12,6 +12,13 @@ struct ContentView: View {
                 .padding()
 
             Button("Run") {
+                let documentsURL = FileManager.default.urls(
+                    for: .documentDirectory,
+                    in: .userDomainMask
+                )[0]
+
+                FileManager.default.changeCurrentDirectoryPath(documentsURL.path)
+
                 let session = FFmpegKit.execute(command)
                 log = session?.getAllLogsAsString() ?? "no output"
             }
