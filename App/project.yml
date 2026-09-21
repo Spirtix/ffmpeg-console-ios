@@ -1,0 +1,22 @@
+name: FFmpegConsole
+options:
+  bundleIdPrefix: com.spirtix.ffmpegconsole
+  deploymentTarget:
+    iOS: "16.0"
+targets:
+  FFmpegConsole:
+    type: application
+    platform: iOS
+    sources: [FFmpegConsole]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.spirtix.ffmpegconsole
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGNING_ALLOWED: "NO"
+        CODE_SIGNING_REQUIRED: "NO"
+        CODE_SIGN_IDENTITY: ""
+    dependencies:
+      - package: ffmpegkit
+packages:
+  ffmpegkit:
+    path: ../ffmpeg-xcframeworks
